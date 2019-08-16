@@ -1,4 +1,4 @@
-package com.bharat.db.model.demo;
+package com.bharat.db.demo.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

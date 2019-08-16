@@ -13,10 +13,14 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
-
+/**
+ * 
+ * @author ErBharatp
+ *
+ */
 @Configuration
 @PropertySource({ "classpath:application.properties" })
-@EnableJpaRepositories(basePackages = "com.bharat.db.repo.demo", entityManagerFactoryRef = "demoEntityManager", transactionManagerRef = "demoTransactionManager")
+@EnableJpaRepositories(basePackages = "com.bharat.db.demo.repo", entityManagerFactoryRef = "demoEntityManager", transactionManagerRef = "demoTransactionManager")
 public class DemoDbConfig {
 	@Autowired
 	private Environment env;
@@ -26,7 +30,7 @@ public class DemoDbConfig {
 	public LocalContainerEntityManagerFactoryBean demoEntityManager() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(demoDataSource());
-		em.setPackagesToScan(new String[] { "com.bharat.db.model.demo" });
+		em.setPackagesToScan(new String[] { "com.bharat.db.demo.model" });
 
 		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);

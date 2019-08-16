@@ -1,4 +1,4 @@
-package com.bharat.db.controller;
+package com.bharat.db.demo.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bharat.db.model.demo.Item;
-import com.bharat.db.repo.demo.ItemRepository;
+import com.bharat.db.demo.model.Item;
+import com.bharat.db.demo.repo.ItemRepository;
 
 @RestController
 @RequestMapping("/api")

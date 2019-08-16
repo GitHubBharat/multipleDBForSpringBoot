@@ -1,24 +1,42 @@
-package com.bharat.db.model.oauth;
+package com.bharat.db.oauth.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/**
+ * 
+ * @author ErBharatp
+ *
+ */
 @Entity
 @Table(name = "data")
 public class Data {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private int id;
+	private 	Long id;
 
 	@Column(name = "title")
 	private String title;
 
-	public int getId() {
+	private String address; 
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void setTitle(String title) {

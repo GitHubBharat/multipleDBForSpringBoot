@@ -19,7 +19,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 @PropertySource({ "classpath:application.properties" })
-@EnableJpaRepositories(basePackages = "com.bharat.db.repo.oauth", entityManagerFactoryRef = "EntityManager", transactionManagerRef = "TransactionManager")
+@EnableJpaRepositories(basePackages = "com.bharat.db.oauth.repo", entityManagerFactoryRef = "EntityManager", transactionManagerRef = "TransactionManager")
 public class OauthDbConfig {
 	@Autowired
 	private Environment env;
@@ -28,7 +28,7 @@ public class OauthDbConfig {
 	public EntityManagerFactory EntityManager() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(DataSource());
-		em.setPackagesToScan(new String[] { "com.bharat.db.model.oauth" });
+		em.setPackagesToScan(new String[] { "com.bharat.db.oauth.model" });
 
 		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
@@ -36,6 +36,7 @@ public class OauthDbConfig {
 		properties.put("spring.jpa.properties.hibernate.dialect",
 				env.getProperty("spring.jpa.properties.hibernate.dialect"));
 		properties.put("spring.jpa.show-sql", env.getProperty("spring.jpa.show-sql"));
+		properties.put("spring.jpa.hibernate.ddl-auto", env.getProperty("spring.jpa.hibernate.ddl-auto"));
 		em.setJpaPropertyMap(properties);
 		em.afterPropertiesSet();
 		return em.getObject();
